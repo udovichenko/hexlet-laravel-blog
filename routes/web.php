@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{ArticleCategoryController, ArticleController, PageController};
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'about']);
+Route::get('/team', [PageController::class, 'team']);
 
-Route::get('about', function () {
-    $tags = ['обучение', 'программирование', 'php', 'oop'];
-    return view('about', ['tags' => $tags]);
-});
+Route::get('/articles', [ArticleController::class, 'index'])
+    ->name('articles.index');
+
+Route::get('article_categories', [ArticleCategoryController::class, 'index'])
+    ->name('article_categories.index');
