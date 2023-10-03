@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav>
-            <a href="/">Articles</a>
+            <a href="/">About</a>
 
             <a href="{{ route('articles.index') }}">Articles</a>
 
