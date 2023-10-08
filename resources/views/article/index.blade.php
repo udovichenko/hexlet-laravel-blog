@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    {{ Form::open(['route' => 'articles.index', 'method' => 'GET']) }}
+    {{ Form::text('q', $q) }}
+    {{ Form::submit() }}
+    {{ Form::close() }}
+
     <h1>Список статей</h1>
     @foreach ($articles as $article)
         <h2>{{ $article->name }}</h2>
