@@ -11,9 +11,9 @@ class ArticleController extends Controller
     {
         $q = $request->input('q');
         if (empty($q)) {
-            $articles = Article::all();
+            $articles = Article::paginate();
         } else {
-            $articles = Article::where('name', 'like', "%{$q}%")->get();
+            $articles = Article::where('name', 'like', "%{$q}%")->paginate();
         }
         return view('article.index', ['articles' => $articles, 'q' => $q]);
     }
