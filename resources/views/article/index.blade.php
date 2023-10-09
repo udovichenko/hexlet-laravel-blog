@@ -6,9 +6,15 @@
     {{ Form::submit() }}
     {{ Form::close() }}
 
+    <div>
+        <a href="/articles/create">Создать статью</a>
+    </div>
+
     <h1>Список статей</h1>
     @foreach ($articles as $article)
-        <h2>{{ $article->name }}</h2>
+        <a href="/articles/{{ $article->id }}">
+            <h2>{{ $article->name }}</h2>
+        </a>
 
         <div>{{ Str::limit($article->body, 200) }}</div>
         <div>{{ $article->state == 'published' ? '✅' : '☑️' }}</div>

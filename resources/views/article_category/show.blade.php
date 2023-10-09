@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>{{ $category->name }}</h1>
+    <a href="/article_categories/{{ $category->id }}/edit">Редактировать</a>
 
+    <hr />
+
+    <h1>{{ $category->name }}</h1>
     <div>{{ $category->description }}</div>
 
     @if(!$category->articles->isEmpty())
